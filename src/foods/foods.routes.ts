@@ -3,4 +3,4 @@ import * as FoodsController from "./foods.controller";
 
 const router = Router();
 
-router('/foods').get(FoodsController.getAllFoods);
+router.route('/foods').get(FoodsController.getAllFoods);

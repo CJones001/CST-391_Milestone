@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@types/express": "^5.0.0",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "helmet": "^8.0.0",
     "lite-server": "^2.6.1",
     "mysql": "^2.18.1"
   },
@@ -25,6 +27,7 @@
   },
   "homepage": "https://github.com/CJones001/CST-391_Milestone#readme",
   "devDependencies": {
-    "@types/mysql": "^2.15.26"
+    "@types/mysql": "^2.15.26",
+    "@types/uuid": "^10.0.0"
   }
 }
