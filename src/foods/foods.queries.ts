@@ -10,5 +10,7 @@ export const foodQueries = {
   
     updateFood: 'UPDATE foods SET name = ?, calories = ?, price = ?, restaurantId = ? WHERE id = ?',
   
-    deleteFood: 'DELETE FROM foods WHERE id = ?'
+    deleteFood: 'DELETE FROM foods WHERE id = ?',
+
+    readFood: 'SELECT * FROM foods WHERE restaurantId = ?'
 }
