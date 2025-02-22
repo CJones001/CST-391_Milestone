@@ -3,8 +3,8 @@ import helmet from 'helmet';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import logger from './middleware/logger.middleware';
-import foodsRouter from './foods/foods.routes';
-import restaurantRouter from './restaurants/restaurants.routes';
+import FoodRouter from './foods/foods.routes';
+import Restaurant from './restaurants/restaurant.routes';
 
 dotenv.config();
 
@@ -35,11 +35,12 @@ if (process.env.NODE_ENV == 'development') {
 // Application routes
 // root route
 app.get('/', (req: Request, res: Response) => {
-  res.send('<h1>Welcome to the Music API</h1>');
+  res.send('<h1>Welcome to the Food Delivery API</h1>');
 });
 
 // adding router middleware
-app.use('/', [albumsRouter, artistsRouter]);
+app.use('/foods', FoodRouter);
+app.use('/restaurants', RestaurantRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
