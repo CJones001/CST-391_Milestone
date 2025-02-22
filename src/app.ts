@@ -4,7 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import logger from './middleware/logger.middleware';
 import FoodRouter from './foods/foods.routes';
-import Restaurant from './restaurants/restaurant.routes';
+import RestaurantRouter from './restaurants/restaurant.routes';
 
 dotenv.config();
 
@@ -23,8 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 
 console.log(process.env.MY_SQL_DB_HOST);
-
-//MySQLConnector.initializeMySqlConnector();
 
 if (process.env.NODE_ENV == 'development') {
   // add logger middleware
