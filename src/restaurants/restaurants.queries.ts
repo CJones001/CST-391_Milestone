@@ -1,20 +1,22 @@
 export const restaurantQueries = {
     
     readRestaurants: 
-    `SELECT * FROM restaurant`,
+    `SELECT id as restaurantId, name, location, category, avgWaitTime 
+    FROM food_delivery.restaurant`,
 
     readRestaurantById: 
-    `SELECT * FROM restaurant 
+    `SELECT id as restaurantId, name, location, category, avgWaitTime 
+    FROM food_delivery.restaurant 
     WHERE id = ?`,
 
     createRestaurant:
-    `INSERT INTO restaurant (name, location, category, avgWaitTime) VALUES (?, ?, ?, ?)`,
+    `INSERT INTO food_delivery.restaurant (name, location, category, avgWaitTime) VALUES (?, ?, ?, ?)`,
 
     updateRestaurant:
-    `UPDATE restaurant SET name = ?, location = ?, category = ?, avgWaitTime = ? 
+    `UPDATE food_delivery.restaurant SET name = ?, location = ?, category = ?, avgWaitTime = ? 
     WHERE id = ?`,
 
     deleteRestaurant:
-    `DELETE FROM restaurant WHERE id = ?`
+    `DELETE FROM food_delivery.restaurant WHERE id = ?`
 
 }

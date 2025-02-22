@@ -5,4 +5,6 @@ const router = Router();
 
 router.get('/restaurants', RestaurantController.getAllRestaurants);
 
+router.get('/restaurants/:id', RestaurantController.getRestaurantById);
+
 export default router;

@@ -37,8 +37,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // adding router middleware
-app.use('/foods', FoodRouter);
-app.use('/restaurants', RestaurantRouter);
+app.use('/', [FoodRouter, RestaurantRouter]);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
