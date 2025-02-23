@@ -8,4 +8,8 @@ export const getAllFoods = async () => {
 
 export const readFoods = async (restaurantId: number) => {
     return execute<Food[]>(foodQueries.readFood, [restaurantId]);
-    }
+}
+
+export const createFood = async (name: string, calories: number, price: number, restaurantId: number) => {
+    return execute(foodQueries.createFood, [name, calories, price, restaurantId]);
+}

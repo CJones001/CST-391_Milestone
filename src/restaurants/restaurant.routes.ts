@@ -15,4 +15,6 @@ router.delete('/restaurants/:id', RestaurantController.deleteRestaurant);
 
 router.get('/restaurants/:id/menu', RestaurantController.getRestaurantMenu);
 
+router.post('/restaurants/:id/menu', RestaurantController.addFoodToRestaurant);
+
 export default router;

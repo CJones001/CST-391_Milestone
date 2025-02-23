@@ -96,3 +96,17 @@ export const getRestaurantMenu: RequestHandler = async (req: Request, res: Respo
         });
     }
 };
+
+export const addFoodToRestaurant: RequestHandler = async (req: Request, res: Response) => {
+    try{
+        const {name, price, restaurantId} = req.body;
+        const result = await FoodsDao.createFood(name, calories,  price, restaurantId);
+        res.status(201).json(result);
+    }
+    catch(err){
+        console.error(err);
+        res.status(500).json({
+            message: 'There was an error when creating food'
+        });
+    }
+}
