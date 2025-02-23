@@ -14,7 +14,7 @@ export const getAllRestaurants: RequestHandler = async (req: Request, res: Respo
   catch (err) {
     console.error(err);
     res.status(500).json({
-        message: 'There was an error when fetching albums'
+        message: 'There was an error when fetching restaurants'
       });
   }
 };
@@ -28,7 +28,7 @@ export const getRestaurantById: RequestHandler = async (req: Request, res: Respo
     catch(err){
         console.error(err);
         res.status(500).json({
-            message: 'There was an error when fetching album'
+            message: 'There was an error when fetching restaurant'
         });
     }
 };
@@ -42,7 +42,7 @@ export const createRestaurant: RequestHandler = async (req: Request, res: Respon
     catch(err){
         console.error(err);
         res.status(500).json({
-            message: 'There was an error when creating album'
+            message: 'There was an error when creating restaurant'
         });
     }
 };
@@ -57,7 +57,7 @@ export const updateRestaurant: RequestHandler = async (req: Request, res: Respon
     catch(err){
         console.error(err);
         res.status(500).json({
-            message: 'There was an error when updating album'
+            message: 'There was an error when updating restaurant'
         });
     }
 };
@@ -78,7 +78,7 @@ export const deleteRestaurant: RequestHandler = async (req: Request, res: Respon
     catch(err){
         console.error(err);
         res.status(500).json({
-            message: 'There was an error when deleting album'
+            message: 'There was an error when deleting restaurant'
         });
     }
 };
@@ -92,7 +92,7 @@ export const getRestaurantMenu: RequestHandler = async (req: Request, res: Respo
     catch(err){
         console.error(err);
         res.status(500).json({
-            message: 'There was an error when fetching album menu'
+            message: 'There was an error when fetching menu'
         });
     }
 };

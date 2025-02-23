@@ -1,6 +1,6 @@
 export const foodQueries = {
 
-    getAllFoods: 'SELECT * FROM foods',
+    getAllFoods: 'SELECT * FROM food_delivery.foods',
   
     getFoodById: 'SELECT * FROM foods WHERE id = ?',
   
