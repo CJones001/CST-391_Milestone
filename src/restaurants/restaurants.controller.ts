@@ -99,7 +99,7 @@ export const getRestaurantMenu: RequestHandler = async (req: Request, res: Respo
 
 export const addFoodToRestaurant: RequestHandler = async (req: Request, res: Response) => {
     try{
-        const {name, price, restaurantId} = req.body;
+        const {name, calories, price, restaurantId} = req.body;
         const result = await FoodsDao.createFood(name, calories,  price, restaurantId);
         res.status(201).json(result);
     }
@@ -107,6 +107,19 @@ export const addFoodToRestaurant: RequestHandler = async (req: Request, res: Res
         console.error(err);
         res.status(500).json({
             message: 'There was an error when creating food'
+        });
+    }
+}
+
+export const getAllFoods: RequestHandler = async (req: Request, res: Response) => {
+    try{
+        const foods = await FoodsDao.getAllFoods();
+        res.status(200).json(foods);
+    }
+    catch(err){
+        console.error(err);
+        res.status(500).json({
+            message: 'There was an error when fetching foods'
         });
     }
 }

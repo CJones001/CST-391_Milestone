@@ -6,7 +6,7 @@ export const foodQueries = {
   
     getFoodsByRestaurantId: 'SELECT * FROM foods WHERE restaurantId = ?',
   
-    createFood: 'INSERT INTO foods (name, calories, price, restaurantId) VALUES (?, ?, ?, ?)',
+    createFood: 'INSERT INTO food_delivery.foods (name, calories, price, restaurantId) VALUES (?, ?, ?, ?)',
   
     updateFood: 'UPDATE foods SET name = ?, calories = ?, price = ?, restaurantId = ? WHERE id = ?',
   
