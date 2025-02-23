@@ -6,6 +6,5 @@ export interface Restaurant {
     location: string;
     category: string;
     avgWaitTime: number;
-    menu: Food[]; 
   }
   

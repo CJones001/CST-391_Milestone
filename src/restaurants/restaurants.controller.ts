@@ -7,8 +7,9 @@ import { Restaurant } from './restaurant.model';
 
 export const getAllRestaurants: RequestHandler = async (req: Request, res: Response) => {
   try {
-    const restaurants = await RestaurantDao.readRestaurants();
+    let restaurants = await RestaurantDao.readRestaurants();
     res.status(200).json(restaurants);
+
   }
   catch (err) {
     console.error(err);
@@ -32,17 +33,66 @@ export const getRestaurantById: RequestHandler = async (req: Request, res: Respo
     }
 };
 
-async function readFoods(restaurants: Restaurant[], res: Response<any, Record<string, any>>){
-    for(let i = 0; i < restaurants.length; i++){
-        try{
-            const foods = await FoodsDao.readFoods(restaurants[i].id);
-            restaurants[i].menu = foods;
-        }
-        catch(err){
-            console.error(err);
-            res.status(500).json({
-                message: 'There was an error when fetching foods'
-            });
+export const createRestaurant: RequestHandler = async (req: Request, res: Response) => {
+    try{
+        const {name, location, category, avgWaitTime} = req.body;
+        const result = await RestaurantDao.createRestaurant(name, location, category, avgWaitTime);
+        res.status(201).json(result);
+    }
+    catch(err){
+        console.error(err);
+        res.status(500).json({
+            message: 'There was an error when creating album'
+        });
+    }
+};
+
+export const updateRestaurant: RequestHandler = async (req: Request, res: Response) => {
+    try{
+        const {name, location, category, avgWaitTime} = req.body;
+        const id = parseInt(req.params.id);
+        const result = await RestaurantDao.updateRestaurant(name, location, category, avgWaitTime, id);
+        res.status(200).json(result);
+    }
+    catch(err){
+        console.error(err);
+        res.status(500).json({
+            message: 'There was an error when updating album'
+        });
+    }
+};
+
+export const deleteRestaurant: RequestHandler = async (req: Request, res: Response) => {
+    try{
+        let id = parseInt(req.params.id as string);
+
+        console.log('id', id);
+        if(!Number.isNaN(id)){
+            const response = await RestaurantDao.deleteRestaurant(id);
+
+            res.status(200).json(response);
+        } else {
+            throw new Error('Invalid id');
         }
     }
-}
+    catch(err){
+        console.error(err);
+        res.status(500).json({
+            message: 'There was an error when deleting album'
+        });
+    }
+};
+
+export const getRestaurantMenu: RequestHandler = async (req: Request, res: Response) => {
+    try{
+        const id = parseInt(req.params.id);
+        const menu = await FoodsDao.readFoods(id);
+        res.status(200).json(menu);
+    }
+    catch(err){
+        console.error(err);
+        res.status(500).json({
+            message: 'There was an error when fetching album menu'
+        });
+    }
+};

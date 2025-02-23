@@ -21,3 +21,4 @@ export const updateRestaurant = async (name: string, location: string, category:
 export const deleteRestaurant = async (id: number) => {
     return execute(restaurantQueries.deleteRestaurant, [id]);
 }
+
