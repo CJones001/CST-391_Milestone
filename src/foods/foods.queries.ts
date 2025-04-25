@@ -12,5 +12,5 @@ export const foodQueries = {
   
     deleteFood: 'DELETE FROM foods WHERE id = ?',
 
-    readFood: 'SELECT * FROM foods WHERE restaurantId = ?'
+    readFood: 'SELECT * FROM foods WHERE id = ?'
 }

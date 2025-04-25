@@ -3,11 +3,11 @@ import { readRestaurants } from "./restaurant.dao";
 export const restaurantQueries = {
     
     readRestaurants: 
-    `SELECT id as restaurantId, name, location, category, avgWaitTime
+    `SELECT id, name, location, category, avgWaitTime
     FROM food_delivery.restaurant`,
 
     readRestaurantById: 
-    `SELECT id as restaurantId, name, location, category, avgWaitTime 
+    `SELECT id, name, location, category, avgWaitTime 
     FROM food_delivery.restaurant 
     WHERE id = ?`,
   
